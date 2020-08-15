@@ -11,9 +11,9 @@
     <header id="header">
         <h1 class="title">YAGU-STORY</h1>
         <div class="login_box">
-            <input type="text" class="idBox" placeholder="Your ID">
-            <input type="text" class="password" placeholder="Password">
-            <button class="login_button">LOGIN</button>
+            <input type="text" class="idBox loginChild" placeholder="Your ID">
+            <input type="text" class="password loginChild" placeholder="Password">
+            <button class="login_button loginChild">LOGIN</button>
         </div>
     </header>
 <main id="main">
@@ -22,7 +22,18 @@
         <div class="centerBox upperSide">
             <div class="teamSelectBox">
                 <div class="teamIcon_basic"></div>
-                <input type="select" class="teamSelect">
+                <select name='select'class="teamSelect">
+                    <option value="SK">SK</option>
+                    <option value="두산">두산</option>
+                    <option value="한화">한화</option>
+                    <option value="LG">LG</option>
+                    <option value="롯데">롯데</option>
+                    <option value="NC">NC</option>
+                    <option value="KIA">KIA</option>
+                    <option value="KT">KT</option>
+                    <option value="키움">키움</option>
+                    <option value="삼성">삼성</option>
+                </select>
             </div>
         <div class="writeBox">
             <div class="wite_context">
@@ -46,16 +57,16 @@
     </section>
     <nav class="section right">
         <div class="teamButton_box">
-            <button class="teamButton" id ="buttonSK">SK</button>
-            <button class="teamButton" id =" buttonDS">Doosan</button>
-            <button class="teamButton" id =" buttonLG">LG</button>
-            <button class="teamButton" id =" buttonNC">NC</button>
-            <button class="teamButton" id =" buttonKIA">KIA</button>
-            <button class="teamButton" id =" buttonSS">SAMSUNG</button>
-            <button class="teamButton" id =" buttonKT">KT</button>
-            <button class="teamButton" id =" buttonKIWOOM">KIWOOM</button>
-            <button class="teamButton" id =" buttonHANHWA">HANHWA</button>
-            <button class="teamButton" id =" buttonLOTTE">LOTTE</button>
+            <button class="teamButton" id ="SK">SK</button>
+            <button class="teamButton" id ="두산">Doosan</button>
+            <button class="teamButton" id ="LG">LG</button>
+            <button class="teamButton" id ="NC">NC</button>
+            <button class="teamButton" id ="KIA">KIA</button>
+            <button class="teamButton" id ="삼성">SAMSUNG</button>
+            <button class="teamButton" id ="KT">KT</button>
+            <button class="teamButton" id ="키움">KIWOOM</button>
+            <button class="teamButton" id ="한화">HANHWA</button>
+            <button class="teamButton" id ="롯데">LOTTE</button>
         </div>
         <button class="before">Back</button>
         <button class="refresh">새글 보기</button>
