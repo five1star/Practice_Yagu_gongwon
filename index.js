@@ -4,8 +4,44 @@
 const ulList = document.querySelector('.message_list');
 const beforeButton = document.querySelector('.before');
 const refreshButton = document.querySelector('.refresh');
-const teamButtonBox = document.querySelector('.teamButton_box')
+const teamButtonBox = document.querySelector('.teamButton_box');
 const teamButton = teamButtonBox.querySelectorAll('.teamButton');
+
+const loginButton = document.querySelector('.login_button');
+const userID = document.querySelector('.idBox');
+const userPassword = document.querySelector('.password');
+const loginBox = document.querySelector('.login_box');
+const loginChild = loginBox.querySelectorAll('.loginChild');
+const upLoadButton = document.querySelector('.upLoad');
+const newTitle = document.querySelector('.witeTitle');
+const newMessage = document.querySelector('.writemessage');
+const selectTeam = document.querySelector('.teamSelect');
+
+
+
+function newUpLoad(){
+
+    DATA.unshift({
+      user: userID.value,
+      title: newTitle.value,
+      message: newMessage.value,
+      created_at: new Date().format(),
+      team: selectTeam.value,
+    });
+
+    newTitle.value = '';
+    newMessage.value = '';
+ 
+    removeAll();
+    reLoad();
+  
+
+  
+
+
+
+
+}
 
 function template(){
     console.log('template() Start');
@@ -50,54 +86,75 @@ function reLoad(){
 console.log('모든 정보를 불러왔습니다.');
 } //DATA의 모든 property에 대해서 list를 만든다.
 
-
 function teamSearch(){
     teamButton.forEach(function(eachButton){
         eachButton.addEventListener('click',function(){
-            removeAll();//리스트를 모두 지운다.
-console.log(DATA);
-            let filterdDATA = DATA.filter(function(el){
-            if ( DATA[el].team === eachButton.id ){
-              return true;
-              }
-            });
-        })
-    })
-}
 
-        // // const renderFilteredDATA = function (targetName) {
-        // //     const ul = document.createElement('ul');
-        // //     ul.id = 'tweetWrapper';
-          
-        // //     const tweets = DATA.filter(function (tweet) {
-        // //       return tweet.user === targetName;
-        // //     }).reduce(tweetListReducer, ul);
-          
-        // //     state.isFilteredPage = true;
-        // //     mainTweetList.append(tweets);
-        // //   };
-
-        // for(i=TEAM_DATA.length-1; i>=0 ;i--){
-        //     let userNameI = TEAM_DATA[i].user;
-        //     let userTitleI = TEAM_DATA[i].title;
-        //     let userTimeI = TEAM_DATA[i].created_at;
+          let FILTERED = DATA.filter(function(el){
             
-        //     template();
+            if (el.team === eachButton.id){
+              return true;
+            } 
+            });
 
-        //     let userName = ulList.querySelector('.userName');
-        //     let userTitle = ulList.querySelector('.userTitle');
-        //     let userTime = ulList.querySelector('.userTime');
+            removeAll();
+
+            for(i=FILTERED.length-1; i>=0 ;i--){
+              let userNameI = FILTERED[i].user;
+              let userTitleI = FILTERED[i].title;
+              let userTimeI = FILTERED[i].created_at;
+      
+            template();
+
+            let userName = ulList.querySelector('.userName');
+            let userTitle = ulList.querySelector('.userTitle');
+            let userTime = ulList.querySelector('.userTime');
         
-        //   userName.textContent = userNameI;
-        //   userTitle.textContent = userTitleI;
-        //   userTime.textContent = userTimeI;
-        // }
-        // return el;
-        // }) 
+          userName.textContent = userNameI;
+          userTitle.textContent = userTitleI;
+          userTime.textContent = userTimeI;
+      }
+      console.log(`모든 ${eachButton.id}팀의 글을 불러왔습니다.`);
+       //DATA의 모든 property에 대해서 list를 만든다.            
+    });
+  });
+}; //버튼마다 해당 팀의 글만 불러온다.
+        
+function Login(){
+  loginChild.forEach(function(el){
+    el.remove();
+  })
+
+  let welcomeYou = document.createElement('div');
+    welcomeYou.className="welcomeYou";
+    welcomeYou.textContent =`안녕하세요 ${userID.value}님!`
+
+    loginBox.append(welcomeYou);
+
+  };
+
+
+
+upLoadButton.addEventListener('click',function(){
+  if(userID.value === ''){
+    alert('로그인을 완료해주세요');
+
+  } else if (newTitle.value ==='' || newMessage.value ==='' ){
+    alert('내용을 입력해주세요');
    
+  } else newUpLoad();
+});
 
 
 
+
+loginButton.addEventListener('click',function(){
+  if(userID.value === '' || userPassword.value ===''){
+    alert('내용을 입력해주세요!');
+  } else Login()
+
+
+})
 
   refreshButton.addEventListener('click',function(){
     const ramdomMessage = generateNewTweet()
