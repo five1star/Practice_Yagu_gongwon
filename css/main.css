@@ -1,0 +1,119 @@
+#main{
+    position: fixed;
+    top:120px;
+    width:100%;
+    height:100vh;
+    display:flex;
+}
+
+.center{
+    width:70%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right:20px;
+}
+
+.upperSide{
+    padding-bottom: 15px;
+    height:100px;
+    display:flex;
+    align-items: center;
+    border:2px solid grey;
+    border-radius: 15px;
+    box-shadow:rgba(0, 0, 0, 0.3) 0px 5px 20px -8px,
+  rgba(0, 0, 0, 0.024) 0px -20px 15px -25px;
+    
+}
+
+.teamSelectBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+}
+
+.upperSide button{
+    width:80px;
+    height: 30px;
+    background-color: #0277bd;
+    border-radius: 8px;
+    border:none;
+    color:white;
+    font-weight: 700;
+    box-shadow:rgba(0, 0, 0, 0.3) 0px 5px 20px -8px,
+    rgba(0, 0, 0, 0.024) 0px -20px 15px -25px;
+}
+
+.witeTitle {
+    width:500px;
+}
+
+
+.info_div{
+    display:flex;
+    padding-bottom:10px;
+    margin:10px 5px 10px 5px;
+    justify-content: space-between;
+    font-weight: 900;
+    border-bottom:2px solid grey;
+    
+}
+
+
+.lowerSide {
+    margin-top:50px;
+    height:100vh;
+    border:2px solid grey;
+    border-radius: 15px;
+    box-shadow:rgba(0, 0, 0, 0.3) 0px 5px 20px -8px,
+  rgba(0, 0, 0, 0.024) 0px -20px 15px -25px;
+}
+
+.message_list{
+    display: flex;
+    flex-direction: column;
+    padding:10px 5px;
+    font-size:20px;
+    font-weight: 800;
+}
+
+.message_item {
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    border-bottom:2px solid grey;
+    
+    margin-right:10px;
+    margin-bottom:10px;
+    padding-bottom:15px;
+
+}
+
+.userMessage{
+    display:none;
+}
+
+.eachMessage_box{
+    display:flex;
+    flex-direction: column;
+
+}
+
+.eachInfo{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:15px;
+}
+.eachMessage{
+    width:97%;
+    padding-left:15px;
+    padding-top:15px;
+    margin: 10px 5px;
+    height:500px;
+    border-bottom:2px solid grey;
+    border-radius: 15px;
+    background-color: ghostwhite
+}

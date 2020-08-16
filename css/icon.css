@@ -1,0 +1,66 @@
+
+.teamIcon{
+    width:70px;
+    height:70px; 
+    border: 2px solid white;
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+    background-position: center;
+
+}
+
+.default{
+    background-image:url("../images/icons/icon_kbo.png");
+    overflow: hidden;
+
+}
+.SK{
+    background-image:url("../images/icons/sk_icon.png");
+    overflow: hidden;
+}
+
+.NC{
+    background-image:url("../images/icons/icon_nc.png");
+    overflow: hidden;
+}
+
+.두산{
+    background-image:url("../images/icons/icon_doosan.png");
+    overflow: hidden;
+}
+
+.삼성{
+    background-image:url("../images/icons/icon_samsung.png");
+    overflow: hidden;
+}
+
+.KIA{
+    background-image:url("../images/icons/icon_kia.png");
+    overflow: hidden;
+}
+
+.KT{
+    background-image:url("../images/icons/icon_kt.png");
+    overflow: hidden;
+    background-size: 50px 50px;
+}
+
+.키움{
+    background-image:url("../images/icons/icon_kiwoom.png");
+    overflow: hidden;
+}
+
+.롯데{
+    background-image:url("../images/icons/icon_lotte.png");
+    overflow: hidden;
+}
+
+.한화{
+    background-image:url("../images/icons/icon_hanwha.png");
+    overflow: hidden;
+}
+
+.LG{
+    background-image:url("../images/icons/icon_lg.png");
+    overflow: hidden;
+}

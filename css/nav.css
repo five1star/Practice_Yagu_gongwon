@@ -1,0 +1,112 @@
+
+.right{
+    width:15%;
+    margin-right:15px;
+    display:flex;
+    flex-direction: column;
+}
+
+.centerBox{
+    width:900px;
+}
+.wite_box{
+    display:flex;
+}
+.upperSide{
+    display:flex;
+    justify-content: space-around;
+}
+
+.wite_context{
+    display:flex;
+    flex-direction: column;
+}
+
+.teamButton_box{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teamButton {
+    border-radius: 8px;
+    border:none;
+    margin:5px 5px;
+    width:100px;
+    height: 30px;
+    color:white;
+    font-weight: 700;
+    box-shadow:rgba(0, 0, 0, 0.3) 0px 5px 20px -8px,
+    rgba(0, 0, 0, 0.024) 0px -20px 15px -25px;
+}
+
+.teamButton_box :first-child {
+    background-color:#ea002c;
+}
+
+.teamButton_box :nth-child(2) {
+    background-color:#131230;
+}
+
+.teamButton_box :nth-child(3) {
+    background-color:#A50034;
+}
+
+.teamButton_box :nth-child(4) {
+    background-color:#5f8fb4;
+}
+
+.teamButton_box :nth-child(5) {
+    background-color:#e01f29;
+}
+
+.teamButton_box :nth-child(6) {
+    background-color:#0068b3;
+}
+
+.teamButton_box :nth-child(7) {
+    background-color:black;
+}
+.teamButton_box :nth-child(8) {
+    background-color:#800121;
+}
+.teamButton_box :nth-child(9) {
+    background-color:#f27222;
+}
+.teamButton_box :nth-child(10) {
+    background-color:#002954;
+}
+
+.down_box{
+    background-color: #0277bd;
+    border-radius: 15px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:30px;
+    height:200px;
+    box-shadow:rgba(0, 0, 0, 0.3) 0px 5px 20px -8px,
+    rgba(0, 0, 0, 0.024) 0px -20px 15px -25px;
+}
+
+.downButton_box{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:30px 0px;
+}
+
+.down_box button{
+    margin:10px 10px;
+    width:80px;
+    height: 30px;
+    background-color:white;
+    color:#0277bd;
+    border-radius: 8px;
+    border:none;
+    font-weight: 700;
+    box-shadow:rgba(0, 0, 0, 0.3) 0px 5px 20px -8px,
+    rgba(0, 0, 0, 0.024) 0px -20px 15px -25px;
+}
+
+.seacrchBox{}
