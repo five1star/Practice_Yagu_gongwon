@@ -1,12 +1,15 @@
 // console.log(DATA);
 // console.log(generateNewTweet());
 
+
 const ulList = document.querySelector('.message_list');
 const beforeButton = document.querySelector('.before');
 const refreshButton = document.querySelector('.refresh');
 const teamButtonBox = document.querySelector('.teamButton_box');
 const teamButton = teamButtonBox.querySelectorAll('.teamButton');
 
+
+const teamIcon = document.querySelector('.teamIcon');
 const loginButton = document.querySelector('.login_button');
 const userID = document.querySelector('.idBox');
 const userPassword = document.querySelector('.password');
@@ -16,7 +19,9 @@ const upLoadButton = document.querySelector('.upLoad');
 const newTitle = document.querySelector('.witeTitle');
 const newMessage = document.querySelector('.writemessage');
 const selectTeam = document.querySelector('.teamSelect');
-
+const searchButton = document.querySelector('.searchButton');
+const searchText = document.querySelector('.search_text');
+const searchOption = document.querySelector('.selectOption');
 
 
 function newUpLoad(){
@@ -34,6 +39,7 @@ function newUpLoad(){
  
     removeAll();
     reLoad();
+    
   
 
   
@@ -52,16 +58,22 @@ function template(){
     userName.className="userName";
     let userTitle = document.createElement('div');
     userTitle.className="userTitle";
+    userTitle.addEventListener('click',function(){
+      viewMessage();
+    });
     let userTime = document.createElement('div');
     userTime.className="userTime";
+    let userMessage = document.createElement('div');
+    userMessage.className="userMessage";
 
-    li.append(userName,userTitle,userTime);
+    li.append(userName,userTitle,userTime,userMessage);
     ulList.prepend(li);
+
   
   } //template 생성하는 func
 
 function removeAll(){
-    let allLi = ulList.querySelectorAll('.message_item');
+    let allLi = ulList.querySelectorAll('li');
     allLi.forEach(function(el){
         el.remove();
     console.log('모두 지웠습니다.')
@@ -73,15 +85,19 @@ function reLoad(){
         let userNameI = DATA[i].user;
         let userTitleI = DATA[i].title;
         let userTimeI = DATA[i].created_at;
+        let userMessageI = DATA[i].message;
 
       template();
       let userName = ulList.querySelector('.userName');
       let userTitle = ulList.querySelector('.userTitle');
       let userTime = ulList.querySelector('.userTime');
+      let userMessage = ulList.querySelector('.userMessage');
   
     userName.textContent = userNameI;
     userTitle.textContent = userTitleI;
     userTime.textContent = userTimeI;
+    userMessage.textContent = userMessageI;
+
 }
 console.log('모든 정보를 불러왔습니다.');
 } //DATA의 모든 property에 대해서 list를 만든다.
@@ -103,16 +119,20 @@ function teamSearch(){
               let userNameI = FILTERED[i].user;
               let userTitleI = FILTERED[i].title;
               let userTimeI = FILTERED[i].created_at;
+              let userMessageI = DATA[i].message;
+
       
             template();
 
             let userName = ulList.querySelector('.userName');
             let userTitle = ulList.querySelector('.userTitle');
             let userTime = ulList.querySelector('.userTime');
+            let userMessage = ulList.querySelector('.userMessage');
         
           userName.textContent = userNameI;
           userTitle.textContent = userTitleI;
           userTime.textContent = userTimeI;
+          userMessage.textContent = userMessageI;
       }
       console.log(`모든 ${eachButton.id}팀의 글을 불러왔습니다.`);
        //DATA의 모든 property에 대해서 list를 만든다.            
@@ -133,7 +153,50 @@ function Login(){
 
   };
 
+function viewMessage(){
 
+
+
+      const thatInfo = event.path[1];
+      const thatUser = thatInfo.querySelector('.userName').textContent;
+      const thatTitle = thatInfo.querySelector('.userTitle').textContent;
+      const thatTime = thatInfo.querySelector('.userTime').textContent;
+      const thatMessage = thatInfo.querySelector('.userMessage').textContent;
+      removeAll();
+      console.log('모두 지웠음');
+      console.log(thatUser,thatTitle,thatTime,thatMessage);
+    
+  let li = document.createElement('li');
+  li.className="eachMessage_box";
+  let eachInfo = document.createElement('div');
+  eachInfo.className="eachInfo";
+  let eachMessage = document.createElement('div');
+  eachMessage.className="eachMessage";
+  let eachName = document.createElement('div');
+  eachName.className="eachName";
+  let eachTitle = document.createElement('div');
+  eachTitle.className="eachTitle";
+  let eachTime = document.createElement('div');
+  eachTime.className="eachTime";
+
+  li.append(eachInfo,eachMessage)
+  eachInfo.append(eachName,eachTitle,eachTime);
+  ulList.prepend(li);
+  eachName.textContent = thatUser;
+  eachTitle.textContent = thatTitle;
+  eachTime.textContent = thatTime;
+  eachMessage.textContent = thatMessage;
+
+}
+
+selectTeam.addEventListener('mouseleave',function(){
+  let TeamValue = selectTeam.value;
+  let iconTeam = document.querySelector('.teamIcon');
+  iconTeam.classList.remove(iconTeam.classList[1]);
+  iconTeam.classList.add(TeamValue);
+  console.log(iconTeam.classList);
+
+})
 
 upLoadButton.addEventListener('click',function(){
   if(userID.value === ''){
@@ -145,8 +208,50 @@ upLoadButton.addEventListener('click',function(){
   } else newUpLoad();
 });
 
+searchButton.addEventListener('click',function(){
+  
+  let seachValue = searchText.value;
+  let optionValue = searchOption.value; 
+
+  removeAll();
 
 
+  let FILTERED = DATA.filter(function(el){
+
+    if (el[optionValue].includes(seachValue)){
+      console.log(el[optionValue],seachValue);
+      return true;
+      
+    } 
+    });
+
+    for(i=FILTERED.length-1; i>=0 ;i--){
+      let userNameI = FILTERED[i].user;
+      let userTitleI = FILTERED[i].title;
+      let userTimeI = FILTERED[i].created_at;
+      let userMessageI = FILTERED[i].message;
+
+    template();
+
+    let userName = ulList.querySelector('.userName');
+            let userTitle = ulList.querySelector('.userTitle');
+            let userTime = ulList.querySelector('.userTime');
+            let userMessage = ulList.querySelector('.userMessage');
+        
+          userName.textContent = userNameI;
+          userTitle.textContent = userTitleI;
+          userTime.textContent = userTimeI;
+          userMessage.textContent = userMessageI;
+      
+}
+
+
+  
+  
+  
+
+
+});
 
 loginButton.addEventListener('click',function(){
   if(userID.value === '' || userPassword.value ===''){
@@ -156,23 +261,23 @@ loginButton.addEventListener('click',function(){
 
 })
 
-  refreshButton.addEventListener('click',function(){
+refreshButton.addEventListener('click',function(){
     const ramdomMessage = generateNewTweet()
   DATA.unshift(ramdomMessage);
   removeAll();
   reLoad();
 
-   })
+})
 
-  beforeButton.addEventListener('click',function(){
+beforeButton.addEventListener('click',function(){
       removeAll();
       reLoad();
-  })
+    })
 
-  document.addEventListener('DOMContentLoaded', function(){
-    
-    console.log('화면창이 열렸습니다. 기초 데이터를 불러옵니다.');
-    reLoad();
-    teamSearch();
-  
+document.addEventListener('DOMContentLoaded', function(){
+  console.log('화면창이 열렸습니다. 기초 데이터를 불러옵니다.');
+  reLoad();
+  teamSearch();
   }); // 페이지가 실행되면, DATA 초기값을 각자 tweetUPload 시킨다.
+
+
