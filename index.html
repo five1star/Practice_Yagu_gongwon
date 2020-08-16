@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>YAGU-STORY</title>
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"/>
+    <link rel="stylesheet" href="css/style.css">
     <script src="data.js"></script>
+    
 </head>
 <body>
     <header id="header">
-        <h1 class="title">YAGU-STORY</h1>
+        <h1 class="title"><i class="fas fa-baseball-ball"></i>YAGU STORY</h1>
         <div class="login_box">
             <input type="text" class="idBox loginChild" placeholder="Your ID">
-            <input type="text" class="password loginChild" placeholder="Password">
+            <input type="password" class="password loginChild" placeholder="Password">
             <button class="login_button loginChild">LOGIN</button>
         </div>
     </header>
-<main id="main">
-    <aside class="section left"></aside>
-    <section class="section center">
+    <main id="main">
+        <aside class="section left"></aside>
+        <section class="section center">
         <div class="centerBox upperSide">
             <div class="teamSelectBox">
-                <div class="teamIcon_basic"></div>
+                <div class="teamIcon default"></div>
                 <select name='select'class="teamSelect">
                     <option value="SK">SK</option>
                     <option value="두산">두산</option>
@@ -54,28 +58,40 @@
             </div>
             <ul class="message_list"></ul>
         </div>
-    </section>
-    <nav class="section right">
-        <div class="teamButton_box">
-            <button class="teamButton" id ="SK">SK</button>
-            <button class="teamButton" id ="두산">Doosan</button>
-            <button class="teamButton" id ="LG">LG</button>
-            <button class="teamButton" id ="NC">NC</button>
-            <button class="teamButton" id ="KIA">KIA</button>
-            <button class="teamButton" id ="삼성">SAMSUNG</button>
-            <button class="teamButton" id ="KT">KT</button>
-            <button class="teamButton" id ="키움">KIWOOM</button>
-            <button class="teamButton" id ="한화">HANHWA</button>
-            <button class="teamButton" id ="롯데">LOTTE</button>
-        </div>
-        <button class="before">Back</button>
-        <button class="refresh">새글 보기</button>
-    </nav>
-
-
-
-</main>
-    <footer id="footer">this is footer</footer>
+        </section>
+        <nav class="section right">
+            <div class="teamButton_box">
+                <button class="teamButton" id ="SK">SK</button>
+                <button class="teamButton" id ="두산">Doosan</button>
+                <button class="teamButton" id ="LG">LG</button>
+                <button class="teamButton" id ="NC">NC</button>
+                <button class="teamButton" id ="KIA">KIA</button>
+                <button class="teamButton" id ="삼성">SAMSUNG</button>
+                <button class="teamButton" id ="KT">KT</button>
+                <button class="teamButton" id ="키움">KIWOOM</button>
+                <button class="teamButton" id ="한화">HANHWA</button>
+                <button class="teamButton" id ="롯데">LOTTE</button>
+            </div>
+            <div class="down_box">
+                <div class="downButton_box">
+                    <button class="before">Back</button>
+                    <button class="refresh">새글 보기</button>
+                </div>
+            <div class="seacrchBox">
+                <select name='seachOption'class="selectOption">
+                    <option value="title">제목</option>
+                    <option value="message">내용</option>
+                    <option value="user">작성자</option>
+                    <input type="search" class="search_text">
+                </select>
+            </div>
+            <button class="searchButton">Search</button>
+            </div>
+        </nav>
+    </main>
+    <footer id="footer">
+        <h1 class="footer_text">My Practice</h1>
+    </footer>
     <script src="index.js"></script>
 </body>
 </html>
