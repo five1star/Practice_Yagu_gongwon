@@ -1,14 +1,9 @@
-// console.log(DATA);
-// console.log(generateNewTweet());
-
-
+/* const's */
 const ulList = document.querySelector('.message_list');
 const beforeButton = document.querySelector('.before');
 const refreshButton = document.querySelector('.refresh');
 const teamButtonBox = document.querySelector('.teamButton_box');
 const teamButton = teamButtonBox.querySelectorAll('.teamButton');
-
-
 const teamIcon = document.querySelector('.teamIcon');
 const loginButton = document.querySelector('.login_button');
 const userID = document.querySelector('.idBox');
@@ -25,7 +20,6 @@ const searchOption = document.querySelector('.selectOption');
 
 
 function newUpLoad(){
-
     DATA.unshift({
       user: userID.value,
       title: newTitle.value,
@@ -33,22 +27,11 @@ function newUpLoad(){
       created_at: new Date().format(),
       team: selectTeam.value,
     });
-
     newTitle.value = '';
-    newMessage.value = '';
- 
+    newMessage.value = ''; 
     removeAll();
-    reLoad();
-    
-  
-
-  
-
-
-
-
-}
-
+    reLoad(); 
+} //데이터를 DATA에 unshift 후 remove와 reLoad 작동
 function template(){
     console.log('template() Start');
     
@@ -71,7 +54,6 @@ function template(){
 
   
   } //template 생성하는 func
-
 function removeAll(){
     let allLi = ulList.querySelectorAll('li');
     allLi.forEach(function(el){
@@ -79,7 +61,6 @@ function removeAll(){
     console.log('모두 지웠습니다.')
     })
 } //리스트를 모두 지우는 func
-
 function reLoad(){
     for(i=DATA.length-1; i>=0 ;i--){
         let userNameI = DATA[i].user;
@@ -100,8 +81,7 @@ function reLoad(){
 
 }
 console.log('모든 정보를 불러왔습니다.');
-} //DATA의 모든 property에 대해서 list를 만든다.
-
+} //DATA의 모든 property에 대해서 li를 만든다.
 function teamSearch(){
     teamButton.forEach(function(eachButton){
         eachButton.addEventListener('click',function(){
@@ -138,8 +118,7 @@ function teamSearch(){
        //DATA의 모든 property에 대해서 list를 만든다.            
     });
   });
-}; //버튼마다 해당 팀의 글만 불러온다.
-        
+}; //버튼마다 해당 팀의 글만 불러온다.      
 function Login(){
   loginChild.forEach(function(el){
     el.remove();
@@ -151,12 +130,8 @@ function Login(){
 
     loginBox.append(welcomeYou);
 
-  };
-
+};//아이디와 패스워드를 입력하면 로그인 실행
 function viewMessage(){
-
-
-
       const thatInfo = event.path[1];
       const thatUser = thatInfo.querySelector('.userName').textContent;
       const thatTitle = thatInfo.querySelector('.userTitle').textContent;
@@ -187,17 +162,17 @@ function viewMessage(){
   eachTime.textContent = thatTime;
   eachMessage.textContent = thatMessage;
 
-}
+}// 제목을 클릭하면 내용이 출력
 
+
+/* EventListner's */
 selectTeam.addEventListener('mouseleave',function(){
   let TeamValue = selectTeam.value;
   let iconTeam = document.querySelector('.teamIcon');
   iconTeam.classList.remove(iconTeam.classList[1]);
   iconTeam.classList.add(TeamValue);
   console.log(iconTeam.classList);
-
-})
-
+})//팀마다 글을 필터링 
 upLoadButton.addEventListener('click',function(){
   if(userID.value === ''){
     alert('로그인을 완료해주세요');
@@ -206,8 +181,7 @@ upLoadButton.addEventListener('click',function(){
     alert('내용을 입력해주세요');
    
   } else newUpLoad();
-});
-
+});// 로그인 정보를 만족한 후, 글을 입력하면 newUpLoad()실행
 searchButton.addEventListener('click',function(){
   
   let seachValue = searchText.value;
@@ -251,33 +225,27 @@ searchButton.addEventListener('click',function(){
   
 
 
-});
-
+});// 검색 기능
 loginButton.addEventListener('click',function(){
   if(userID.value === '' || userPassword.value ===''){
     alert('내용을 입력해주세요!');
   } else Login()
-
-
-})
-
+});
 refreshButton.addEventListener('click',function(){
     const ramdomMessage = generateNewTweet()
   DATA.unshift(ramdomMessage);
   removeAll();
   reLoad();
 
-})
-
+}); //리프레시 기능(랜덤트윗)
 beforeButton.addEventListener('click',function(){
       removeAll();
       reLoad();
-    })
-
+}); //remove와 reLoad 실행
 document.addEventListener('DOMContentLoaded', function(){
   console.log('화면창이 열렸습니다. 기초 데이터를 불러옵니다.');
   reLoad();
   teamSearch();
-  }); // 페이지가 실행되면, DATA 초기값을 각자 tweetUPload 시킨다.
+}); // 페이지가 실행되면, DATA 초기값을 각자 tweetUPload 시킨다.
 
 
