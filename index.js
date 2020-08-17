@@ -85,23 +85,18 @@ console.log('모든 정보를 불러왔습니다.');
 function teamSearch(){
     teamButton.forEach(function(eachButton){
         eachButton.addEventListener('click',function(){
-
-          let FILTERED = DATA.filter(function(el){
-            
+          let FILTERED = DATA.filter(function(el){         
             if (el.team === eachButton.id){
               return true;
             } 
-            });
+          });
+          removeAll();
+          for(i=FILTERED.length-1; i>=0 ;i--){
+            let userNameI = FILTERED[i].user;
+            let userTitleI = FILTERED[i].title;
+            let userTimeI = FILTERED[i].created_at;
+            let userMessageI = DATA[i].message;
 
-            removeAll();
-
-            for(i=FILTERED.length-1; i>=0 ;i--){
-              let userNameI = FILTERED[i].user;
-              let userTitleI = FILTERED[i].title;
-              let userTimeI = FILTERED[i].created_at;
-              let userMessageI = DATA[i].message;
-
-      
             template();
 
             let userName = ulList.querySelector('.userName');
@@ -182,22 +177,17 @@ upLoadButton.addEventListener('click',function(){
    
   } else newUpLoad();
 });// 로그인 정보를 만족한 후, 글을 입력하면 newUpLoad()실행
+
 searchButton.addEventListener('click',function(){
-  
   let seachValue = searchText.value;
   let optionValue = searchOption.value; 
-
   removeAll();
-
-
-  let FILTERED = DATA.filter(function(el){
-
-    if (el[optionValue].includes(seachValue)){
-      console.log(el[optionValue],seachValue);
-      return true;
-      
-    } 
-    });
+let FILTERED = DATA.filter(function(el){
+  if (el[optionValue].includes(seachValue)){
+    console.log(el[optionValue],seachValue);
+    return true;
+  } 
+});
 
     for(i=FILTERED.length-1; i>=0 ;i--){
       let userNameI = FILTERED[i].user;
