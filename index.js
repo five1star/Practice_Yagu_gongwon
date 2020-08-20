@@ -1,4 +1,6 @@
 /* const's */
+// 다음계획 -> api 사용
+
 const ulList = document.querySelector('.message_list');
 const beforeButton = document.querySelector('.before');
 const refreshButton = document.querySelector('.refresh');
